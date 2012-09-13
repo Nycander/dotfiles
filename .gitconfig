@@ -1,0 +1,7 @@
+[color]
+	ui = true
+[user]
+	name = Martin Nycander
+	email = martin.nycander@findwise.com
+[core]
+	excludesfile = ~/.gitignore
