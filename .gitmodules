@@ -1,3 +1,3 @@
-[submodule "dirs/oh-my-zsh"]
-	path = dirs/oh-my-zsh
+[submodule "libs/oh-my-zsh"]
+	path = libs/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git

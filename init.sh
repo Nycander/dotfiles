@@ -2,25 +2,19 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # The dir of this file
 
-echo "Updating all git submodules"
-echo "---------------------------"
-git submodule init
-git submodule update
-echo ""
-
-echo "Installing all dotfiles"
-echo "-----------------------"
-for dotfile in $ROOT/files/*
+echo "Installing all dotfiles and dotdirs"
+echo "-----------------------------------"
+for dotfile in $ROOT/dotfiles/*
 do
-	if [ -f "$dotfile" ]; then
-		ln -sfv "$dotfile" ~/.$(basename "$dotfile")
-	fi
+	ln -sfv "$dotfile" ~/.$(basename "$dotfile")
 done
 echo ""
 
-echo "Installing all dot directories"
-echo "------------------------------"
-for dotdir in $ROOT/dirs/*
+echo "Installing all libraries"
+echo "------------------------"
+git submodule init
+git submodule update
+for dotdir in $ROOT/libs/*
 do
 	if [ -d "$dotdir" ]; then
 		ln -sfv "$dotdir" ~/.$(basename "$dotdir")
