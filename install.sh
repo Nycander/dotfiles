@@ -1,6 +1,6 @@
-for file in ~/dotfiles/.*
+for file in ~/dotfiles/config/.*
 do
 	if [ -f "$file" ]; then
-		ln -s -f "$file" ~/$(basename "$file")
+		ln -v -s -f "$file" ~/$(basename "$file")
 	fi
 done
