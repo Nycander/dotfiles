@@ -1,8 +1,13 @@
 # Aliases
 alias gst="git status"
+alias gt="git tree"
 alias bitch,="sudo"
+alias ports="lsof -i -P | grep -i listen"
 
 export PATH=/usr/local/sbin:$PATH
+
+# Adds bin catalog in home directory
+export PATH=~/bin:$PATH
 
 # Enable colors
 export CLICOLOR=1
