@@ -14,6 +14,9 @@ export CLICOLOR=1
 # Use an awesome prompt
 export PS1="$(echo '%{\e[1;37m%}%c %{\e[0;31m%}%(!.☭.∴)%{\e[0m%} ')"
 
+# Oh-my-zsh
+source ~/.oh-my.zsh
+
 # Fixes problem with perl whining about locale
 export LC_CTYPE="en_US.UTF-8"
 export LB_ALL="en_US.UTF-8"
