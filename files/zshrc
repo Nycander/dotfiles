@@ -9,13 +9,17 @@ export PATH=/usr/local/sbin:$PATH
 # Adds bin catalog in home directory
 export PATH=~/bin:$PATH
 
-# Enable colors
-export CLICOLOR=1
-# Use an awesome prompt
-export PS1="$(echo '%{\e[1;37m%}%c %{\e[0;31m%}%(!.☭.∴)%{\e[0m%} ')"
-
-# Oh-my-zsh
-source ~/.oh-my.zsh
+# Unleash an awesome shell (either by oh-my-zsh, or by fallbacking on hacks.)
+if [[ -a ~/.oh-my.zsh ]]
+then
+	source ~/.oh-my.zsh
+else
+	echo "Warning: Could not find ~/.oh-my.zsh, fallbacking on a crude PS1 config."
+	# Enable colors
+	export CLICOLOR=1
+	# Use an awesome prompt
+	export PS1="$(echo '%{\e[1;37m%}%c %{\e[0;31m%}%(!.☭.∴)%{\e[0m%} ')"
+fi
 
 # Fixes problem with perl whining about locale
 export LC_CTYPE="en_US.UTF-8"
