@@ -1,7 +1,17 @@
-[color]
-	ui = true
 [user]
 	name = Martin Nycander
 	email = martin.nycander@findwise.com
 [core]
 	excludesfile = ~/.gitignore
+
+[alias]
+	br = branch
+	ch = checkout
+	tree   = log --graph --pretty=format:'%C(white bold dim)%h%Creset%C(blue)%d%Creset %C(white)%s%C(reset) (by %C(green dim)%an %C(red dim)%ar%C(reset))%Creset' --all
+	brtree = log --graph --pretty=format:'%C(white bold dim)%h%Creset%C(blue)%d%Creset %C(white)%s%C(reset) (by %C(green dim)%an %C(red dim)%ar%C(reset))%Creset' --simplify-by-decoration --all
+
+[branch]
+	autosetuprebase = always
+
+[color]
+	ui = true
