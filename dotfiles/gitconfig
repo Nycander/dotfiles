@@ -1,8 +1,10 @@
-[user]
-	name = Martin Nycander
-	email = martin.nycander@findwise.com
+
 [core]
 	excludesfile = ~/.gitignore
+
+[include]
+	# Put machine local configuration here like the [user] variables
+	path = ~/.gitconfig.local
 
 [alias]
 	br = branch
@@ -15,3 +17,6 @@
 
 [color]
 	ui = true
+    branch = auto
+    diff = auto
+    status = auto
