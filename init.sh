@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # The dir of this file
 
