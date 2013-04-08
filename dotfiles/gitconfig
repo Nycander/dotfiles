@@ -17,6 +17,17 @@
 
 [color]
 	ui = true
-    branch = auto
-    diff = auto
-    status = auto
+	branch = auto
+	diff = auto
+	status = auto
+
+[color "diff"]
+	meta = yellow
+	frag = black
+	old = red
+	new = blue
+
+[color "status"]
+	added = green
+	changed = magenta
+	untracked = reverse
