@@ -1,0 +1,3 @@
+# zshenv is the 1st file zsh reads; it's read for every shell, except when started with -f
+
+export JAVA_HOME=$(/usr/libexec/java_home)

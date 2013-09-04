@@ -1,6 +1,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	pager = less -F -X
 
 [include]
 	# Put machine local configuration here like the [user] variables
