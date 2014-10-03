@@ -3,3 +3,8 @@
 .classpath
 .settings
 .project
+# IntelliJ IDEA
+*.iml
+.idea/
+# Monodevelop
+*.userprefs

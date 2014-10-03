@@ -5,6 +5,7 @@ alias please='eval "fc -lnr | head -n 1" | xargs sudo'
 alias ports="lsof -i -P | grep -i listen"
 fliptable() { echo "（╯°□°）╯ ┻━┻"; }
 
+
 # Git aliases
 alias gst="git status"
 alias gs="git status"
@@ -12,11 +13,21 @@ alias gt="git tree"
 alias gd="git diff"
 alias gdc="git diff --cached"
 
-export PATH=/usr/local/sbin:$PATH
+# Fix hostname for mac
+alias fixhost="scutil --set HostName martin-mbp && echo \"Now make sure martin-mpb exists in /etc/hosts. Press enter to edit it.\" && read && sudo vim /etc/hosts"
+# No mouse acceleration
+defaults write .GlobalPreferences com.apple.mouse.scaling -1
 
 # Adds bin catalog in home directory
 export PATH=~/bin:$PATH
 
+# Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin
+
+# Add /usr/local/(s)bin first
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+export JAVA_TOOL_OPTIONS='-Djava.awt.headless=true'
 
 # Unleash an awesome shell (either by oh-my-zsh, or by fallbacking on hacks.)
 if [[ -a ~/.oh-my.zsh ]]
@@ -99,4 +110,3 @@ function pom-strip-snapshot {
 		git status
 	fi
 }
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -2,6 +2,8 @@
 [core]
 	excludesfile = ~/.gitignore
 	pager = less -F -X
+	# http://stackoverflow.com/questions/5581857/git-and-the-umlaut-problem-on-mac-os-x
+	precomposeunicode = true
 
 [include]
 	# Put machine local configuration here like the [user] variables
@@ -12,6 +14,8 @@
 	ch = checkout
 	tree   = log --graph --pretty=format:'%C(white bold dim)%h%Creset%C(blue)%d%Creset %C(white)%s%C(reset) (by %C(green dim)%an %C(red dim)%ar%C(reset))%Creset' --all
 	brtree = log --graph --pretty=format:'%C(white bold dim)%h%Creset%C(blue)%d%Creset %C(white)%s%C(reset) (by %C(green dim)%an %C(red dim)%ar%C(reset))%Creset' --simplify-by-decoration --all
+	ignored = ls-files --ignored --exclude-standard --others
+	praise = blame
 
 [branch]
 	autosetuprebase = always
@@ -32,3 +36,5 @@
 	added = green
 	changed = magenta
 	untracked = reverse
+[push]
+	default = current
