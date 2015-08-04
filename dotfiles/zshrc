@@ -10,6 +10,7 @@ fliptable() { echo "（╯°□°）╯ ┻━┻"; }
 alias gst="git status"
 alias gs="git status"
 alias gt="git tree"
+alias gta="git alltree"
 alias gd="git diff"
 alias gdc="git diff --cached"
 
@@ -50,63 +51,3 @@ then
 	source ~/.localrc
 fi
 
-# Maven specifics
-
-function pom-release {
-	if [[ $# == 0	 ]]; then
-		echo "Usage: pom-release release-version next-version [extra-params]"
-		return
-	fi
-
-	releaseversion=$1
-	nextversion=$2
-	arguments=$(shift; shift; echo $@)
-
-	pom-set-version $1 $arguments
-	git commit -am "Release version $1"
-	git tag $1
-
-	pom-set-version $2 $arguments
-	git commit -am "Prepares for next version ($2)"
-}
-
-function pom-set-version {
-	if [[ $# == 0 ]]; then
-		echo "Usage: pom-set-version version [extra-params]"
-		return
-	fi
-	version=$1
-	arguments=$(shift; echo $@)
-
-	echo "mvn versions:set -DnewVersion=$version -DprocessDependencies=false $arguments"
-	mvn versions:set -DnewVersion=$version -DprocessDependencies=false $arguments
-	echo "mvn versions:commit $arguments"
-	mvn versions:commit $arguments
-
-	if [[ -d ".git" ]]; then
-		git diff
-		git status
-	fi
-}
-
-function pom-grep {
-	if [[ $# == 0 ]]; then
-		echo "Usage: pom-grep search-string"
-	fi
-	search_string="$@"
-	grep -R -B 2 --include=pom.xml "$search_string" .
-
-}
-
-function pom-strip-snapshot {
-	for pom in `find . -name pom.xml`; do 
-		sed -e 's/-SNAPSHOT<\/\(.*\)version>/<\/\1version>/' -i '' $pom
-	done
-	# Linux version:
-	# for pom in `find . -name pom.xml`; do sed -i 's/-SNAPSHOT<\/\(.*\)version>/<\/\1version>/' $pom; done
-
-	if [[ -d ".git" ]]; then
-		git diff
-		git status
-	fi
-}
